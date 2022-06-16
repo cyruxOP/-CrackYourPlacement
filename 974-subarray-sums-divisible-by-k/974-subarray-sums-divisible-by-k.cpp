@@ -11,7 +11,9 @@ public:
             int a = s % k;
             if(a<0)
                 a+=k;
+            if(v[a]!=0){
             ans+=v[a];
+            }
              v[a]++;
         }
         return ans;
