@@ -6,7 +6,7 @@ public:
         for(int i=0;i<nums.size();i++)
         {
             int ind = abs(nums[i])-1;
-            if(nums[ind]<0) ans.push_back(abs(nums[i]));
+            if(nums[ind]<0) ans.push_back(ind+1);
             nums[ind]*=-1;
         }
         return ans;
