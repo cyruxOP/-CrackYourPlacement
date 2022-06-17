@@ -5,8 +5,7 @@ public:
         sort(nums.begin(),nums.end());
         for(int i=0;i<nums.size();i++)
         {
-            if(i>0 && nums[i]==nums[i-1])
-                continue;
+            
             int l=i+1,r=nums.size()-1,s=0-nums[i];
             while(l<r)
             {
@@ -22,6 +21,7 @@ public:
                 else if(nums[l]+nums[r]<s) l++;
                 else r--;
             }
+            while(i+1<nums.size() and nums[i+1]==nums[i])i++;
         }
         return ans;
     }
