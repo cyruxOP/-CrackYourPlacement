@@ -11,7 +11,7 @@ public:
         {
             curr.push_back(i);
             gs(i+1,n,curr,ans,k);
-            curr.erase(curr.begin()+(curr.size()-1));
+            curr.pop_back();
         }
     }
     vector<vector<int>> combine(int n, int k) {
