@@ -1,7 +1,6 @@
 class Solution {
 public:
-    
-    void gs(int s,int n,vector<int>&curr, vector<vector<int>> &ans,int k)
+     void gs(int s,int n,vector<int>&curr, vector<vector<int>> &ans,int k)
     {
         if(curr.size()==k)
         {
