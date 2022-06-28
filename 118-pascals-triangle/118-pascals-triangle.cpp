@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<vector<int>> generate(int numRows) {
-        vector<vector<int>> a(numRows);
+        vector<vector<int>> a(numRows,vector<int>(numRows));
         for(int i=0;i<numRows;i++)
         {
             a[i].resize(i+1);
