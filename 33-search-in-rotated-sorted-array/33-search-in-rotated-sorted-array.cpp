@@ -10,32 +10,22 @@ public:
             { ind=mid;
                 break;
             }  
-            if(tar==nums[0]) return 0;
-            if(tar<nums[0])
+            if(nums[lo]<=nums[mid])
             {
-                if(nums[mid]>=nums[0])
-                    lo=mid+1;
+                if(tar>=nums[lo] && tar<=nums[mid])
+                    hi=mid-1;
                 else
-                {
-                    if(tar<nums[mid])
-                        hi=mid-1;
-                    else
-                        lo=mid+1;
-                } 
-                    
+                    lo=mid+1;
             }
-            else{
-                if(nums[mid]>=nums[0])
+            else
+            {
+                if(tar>=nums[mid] && tar<=nums[hi])
                 {
-                    if(tar>nums[mid])
-                        lo=mid+1;
-                    else
-                        hi=mid-1;
+                    lo=mid+1;
                 }
                 else
                     hi=mid-1;
             }
-            cout<<lo<<" "<<hi<<endl;
         }
         return ind;
     }
