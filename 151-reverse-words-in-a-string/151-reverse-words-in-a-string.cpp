@@ -14,6 +14,7 @@ public:
                     lind=i;
             }
             reverse(s.begin()+sind,s.begin()+lind);
+            if(i<n)
             s[i++]=' ';
         }
         s.resize(lind);
