@@ -6,9 +6,8 @@ public:
             i++;
         int sign=1;
         if(s[i]=='-'){sign=-1;i++;}
-        if(s[i]=='+'){ 
-            i++;
-        if(sign==-1) return 0;}
+        else if(s[i]=='+'){ 
+            i++;}
         long long ans=0;
         while(i<s.size())
         {
