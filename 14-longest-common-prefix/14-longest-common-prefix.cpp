@@ -7,7 +7,7 @@ public:
             for(string s: strs)
             {
                 if(i==s.size()|| s[i] != strs[0][i])
-                    return s.substr(0,i);
+                    return res;
                 
             }
             res+=strs[0][i];
