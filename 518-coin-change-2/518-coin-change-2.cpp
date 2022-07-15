@@ -15,9 +15,21 @@ public:
         return dp[ind][tar]=nt+tk;
         
     }
-    int change(int tar, vector<int>& coins) {
-        int n =coins.size();
-        vector<vector<int>> dp(n,vector<int> (tar+1,-1));
-        return f(n-1,tar,coins,dp);
+    int change(int tar, vector<int>& arr) {
+        int n =arr.size();
+        vector<vector<int>> dp(n,vector<int> (tar+1,0));
+        for(int t=0;t<=tar;t++)
+            if(t%arr[0]==0) dp[0][t]=1;
+        for(int i=1;i<n;i++)
+            for(int t=0;t<=tar;t++)
+            {
+                int nt = dp[i-1][t];
+                int tk =0;
+                if(arr[i]<=t)
+                    tk=dp[i][t-arr[i]];
+                
+                dp[i][t]= nt+tk;
+            }
+        return dp[n-1][tar];
     }
 };
