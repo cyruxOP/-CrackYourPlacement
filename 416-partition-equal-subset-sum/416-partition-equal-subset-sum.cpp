@@ -11,10 +11,14 @@ public:
         vector<vector<int>> dp(n,vector<int>(ts+1,0));
         for(int i=0;i<nums.size();i++)
             dp[i][0]=1;
-        if(nums[0]==tar) dp[0][nums[0]]=1;
-        for(int i=1;i<n;i++)
+        for(int i=0;i<n;i++)
             for(int t=1;t<=tar;t++)
-            {
+            { 
+                if(i==0)
+                {
+                    if(nums[0]==t) dp[0][t]=1;
+                    continue;
+                }
                 int nt = dp[i-1][t];
                 int tk = 0;
                 if(nums[i]<=t)
