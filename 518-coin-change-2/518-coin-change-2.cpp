@@ -17,19 +17,23 @@ public:
     }
     int change(int tar, vector<int>& arr) {
         int n =arr.size();
-        vector<vector<int>> dp(n,vector<int> (tar+1,0));
+        vector<int> prev(tar+1,0),  curr(tar+1,0);
         for(int t=0;t<=tar;t++)
-            if(t%arr[0]==0) dp[0][t]=1;
+        
+            if(t%arr[0]==0) prev[t]=1;
         for(int i=1;i<n;i++)
+        {
             for(int t=0;t<=tar;t++)
             {
-                int nt = dp[i-1][t];
+                int nt = prev[t];
                 int tk =0;
                 if(arr[i]<=t)
-                    tk=dp[i][t-arr[i]];
+                    tk=curr[t-arr[i]];
                 
-                dp[i][t]= nt+tk;
+                curr[t]= nt+tk;
             }
-        return dp[n-1][tar];
+            prev=curr;
+        }
+        return prev[tar];
     }
 };
