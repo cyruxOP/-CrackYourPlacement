@@ -1,7 +1,7 @@
 class Solution {
 public:
     
-    int f(int i,int pi,int n,vector<int>&nums,vector<vector<int>>&dp)
+    int f(int i,int pi,int &n,vector<int>&nums,vector<vector<int>>&dp)
     {
         if(i==n) return 0;
         if(dp[i][pi+1]!=-1) return dp[i][pi+1];
