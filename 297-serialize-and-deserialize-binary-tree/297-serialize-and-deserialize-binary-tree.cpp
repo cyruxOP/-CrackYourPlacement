@@ -30,7 +30,6 @@ public:
     
             
         }
-        str.pop_back();
         return str;
         
     }
