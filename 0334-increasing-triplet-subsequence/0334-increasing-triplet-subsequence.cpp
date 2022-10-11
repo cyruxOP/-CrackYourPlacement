@@ -17,17 +17,22 @@ public:
     
     bool increasingTriplet(vector<int>& nums) {
        
-        int left=INT_MAX,mid=INT_MAX;
-        for(int el:nums)
-        {
-            if(el>mid)
-                return 1;
-            else if(el<mid && el>left)
-                mid=el;
-            else if(el<left)
-                left=el;
-                
-        }
+            int n  = nums.size();
+      vector<int> temp;
+	temp.push_back(nums[0]);int ln=1;
+	for(int i=1;i<n;i++)
+	{
+		if(nums[i]>temp.back())
+		{
+			temp.push_back(nums[i]);
+			ln++;
+		}else
+		{
+			int ind  = lower_bound(temp.begin(),temp.end(),nums[i]) - temp.begin();
+			temp[ind]=nums[i];
+		}
+	}
+	return ln>=3;
         return 0;
     }
 };
