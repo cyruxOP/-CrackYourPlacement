@@ -9,7 +9,8 @@ public:
     
     
     bool sumOfNumberAndReverse(int num) {
-      for(int i = 0; i <= num; ++i){
+        if(!num) return 1;
+      for(int i = num/2; i <= num; ++i){
             int n = i;
             int r = 0;
             while(n){
