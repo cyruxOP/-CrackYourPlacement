@@ -9,12 +9,15 @@ public:
     
     
     bool sumOfNumberAndReverse(int num) {
-        if(num==0) return 1;
-        for(int i=num/2;i<=num;i++)
-        {
-            int r = rev(i);
-            if(i+r==num) return 1;
+      for(int i = 0; i <= num; ++i){
+            int n = i;
+            int r = 0;
+            while(n){
+                r = r*10 + n%10;
+                n = n/10;
+            }
+            if(r + i == num) return true;
         }
-        return 0;
+        return false;
     }
 };
