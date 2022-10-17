@@ -32,12 +32,12 @@ public:
             g[it[1]].push_back(it[0]);
         }
         int result=0;
-        for(int p=1;p<=sum;p++)
+        for(int p=sum;p>=1;p--)
         {
             if(sum%p!=0)continue;
             if(dfs(0,-1,sum/p)!=0) continue;
-            result=max(result,p-1);
+            return p-1;
         }
-        return result;
+        return 0;
     }
 };
