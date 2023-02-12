@@ -10,22 +10,25 @@ public:
         }
         sort(res.begin(),res.end(),greater<vector<int>>());
         priority_queue<int,vector<int>,greater<int>> pq;
-        for(auto it1:res)
-        {
-            for(auto it:it1)
-                cout<<it<<" ";
-            cout<<'\n';
-        }
+        // for(auto it1:res)
+        // {
+        //     for(auto it:it1)
+        //         cout<<it<<" ";
+        //     cout<<'\n';
+        // }
+        int sz=0;
         for(int i=0;i<nums1.size();i++)
         {
             pq.push(res[i][1]);
             cur+=res[i][1];
-            if(pq.size()>k)
+            sz++;
+            if(sz>k)
             {
                 cur-=pq.top();
                 pq.pop();
+                sz--;
             }
-            if(pq.size()==k)
+            if(sz==k)
             ans=max(ans,1ll*cur*res[i][0]);
            
         }
