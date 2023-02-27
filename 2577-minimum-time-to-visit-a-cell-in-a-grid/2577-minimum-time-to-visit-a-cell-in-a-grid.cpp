@@ -25,14 +25,7 @@ public:
         vector<vector<int>> dist(m,vector<int>(n,1e9));
         dist[0][0]=0;
         set<Node> q;
-        for(int r=0;r<m;r++)
-        {
-            for(int c=0;c<n;c++)
-            {
-                q.insert(Node(dist[r][c],r,c));
-            }
-        }
-        
+        q.insert(Node(0,0,0));
         int dir[][2]= {{-1,0},{0,1},{1,0},{0,-1}};
         while(!q.empty())
         {
@@ -53,7 +46,6 @@ public:
                 int nt = cur.time + wt + 1;
                 if(dist[nx][ny]>nt)
                 {
-                    q.erase(Node(dist[nx][ny] ,nx,ny));
                     dist[nx][ny]=nt;
                     q.insert(Node(dist[nx][ny] ,nx,ny));
                     
