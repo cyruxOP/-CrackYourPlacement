@@ -23,9 +23,16 @@ public:
         if(grid[1][0]>1 && grid[0][1]>1)
             return -1;
         vector<vector<int>> dist(m,vector<int>(n,1e9));
-        set<Node> q;
-        q.insert(Node(grid[0][0],0,0));
         dist[0][0]=0;
+        set<Node> q;
+        for(int r=0;r<m;r++)
+        {
+            for(int c=0;c<n;c++)
+            {
+                q.insert(Node(dist[r][c],r,c));
+            }
+        }
+        
         int dir[][2]= {{-1,0},{0,1},{1,0},{0,-1}};
         while(!q.empty())
         {
@@ -46,8 +53,10 @@ public:
                 int nt = cur.time + wt + 1;
                 if(dist[nx][ny]>nt)
                 {
-                    q.insert(Node(nt,nx,ny));
+                    q.erase(Node(dist[nx][ny] ,nx,ny));
                     dist[nx][ny]=nt;
+                    q.insert(Node(dist[nx][ny] ,nx,ny));
+                    
                 }
             }
         }
