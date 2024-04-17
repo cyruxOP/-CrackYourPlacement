@@ -32,9 +32,9 @@ public:
         for(auto it:mp){
             int l =-1;
             ll cnt =0;
-            cout<<it.first<<" --> ";
+      
             for(auto i:it.second){
-                cout<<i<<" ";
+          
                 if(l==-1){
                     l=i;
                     cnt++;
@@ -51,7 +51,7 @@ public:
                 l=i;
             }
               ans += (cnt * (cnt+1))/2;
-            cout<<'\n';
+   
             
           
             
